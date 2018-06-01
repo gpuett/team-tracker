@@ -1,3 +1,5 @@
+package models;
+
 import models.Member;
 import models.Team;
 import org.junit.Test;

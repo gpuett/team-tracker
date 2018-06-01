@@ -4,13 +4,13 @@
     <p><strong>Members:</strong></p>
         <ul>
             {{#each team.members}}
-                <li>{{name}}</li>
+                <p>{{name}}</p>
             {{/each}}
         </ul>
 
     <form action="/teams/{{team.id}}" method="post">
-        <label for="newMember">Add a new member</label>
-        <input id="newMember" name="newMember" type="text">
+        <label for="name">Add a new member</label>
+        <input id="name" name="name" type="text">
         <button type="submit" class="btn btn-danger">Add!</button>
     </form>
 

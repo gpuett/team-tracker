@@ -52,12 +52,15 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
         post("/teams/:id", (req, res) -> {
-            String member = req.params("newMember");
-            Member newMember = new Member(member);
+            Map<String, Object> model = new HashMap<>();
+            String newName = req.queryParams("name");
+            Member newMember = new Member(newName);
             int idOfTeamToFind = Integer.parseInt(req.params("id"));
-            Team foundTeam = Team.findById(idOfTeamToFind);
-            foundTeam.addMember(newMember);
-            res.redirect("/teams/" + foundTeam.getId());
+            Team newMemberTeam = Team.findById(idOfTeamToFind);
+            newMemberTeam.addMember(newMember);
+//            model.put("team", newMemberTeam);
+//            return new ModelAndView(model, "team-detail.hbs");
+            res.redirect("/teams/" + newMemberTeam.getId());
             return null;
         }, new HandlebarsTemplateEngine());
 
