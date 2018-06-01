@@ -52,4 +52,12 @@ public class TeamTest {
         Team team = new Team("Hackers", "A group of students ready to code!");
         assertEquals(1, Team.findById(team.getId()).getId());
     }
+
+    @Test
+    public void findReturnsCorrectTeamWhenMoreThanOneTeamExists() {
+        Team.clearAllTeams();
+        Team team = new Team("Hackers", "A group of students ready to code!");
+        Team team2 = new Team("Slackers", "Not the best hackers");
+        assertEquals(2, Team.findById(team2.getId()).getId());
+    }
 }
