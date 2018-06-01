@@ -22,7 +22,7 @@ A web app that allows users to set up teams for a weekend hack-a-thon.
 * Clone this repository
 * Open the project in IDEA of your choosing
 * Run App.java
-* Open the your browser and travel to <a href="localhost:4567">localhost:4567</a>
+* Open your browser and travel to <a href="http://localhost:4567">localhost:4567</a>
 
 ### Known Bugs
 * Deleting a team that was not the most recently created will break dynamic routes to detail pages.
