@@ -41,6 +41,10 @@ public class Team {
         return description;
     }
 
+    public static ArrayList<Team> getAll() {
+        return teamList;
+    }
+
 
 
 }

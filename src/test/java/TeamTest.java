@@ -30,4 +30,12 @@ public class TeamTest {
         team.update("Slackers");
         assertEquals("Slackers", team.getName());
     }
+
+    @Test
+    public void getAll_correctlyGetsAll() {
+        Team team = new Team("Hackers", "A group of students ready to code!");
+        Team team2 = new Team("Slackers", "Not the best hackers");
+        assertTrue(Team.getAll().contains(team));
+        assertTrue(Team.getAll().contains(team2));
+    }
 }
