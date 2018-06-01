@@ -38,4 +38,11 @@ public class TeamTest {
         assertTrue(Team.getAll().contains(team));
         assertTrue(Team.getAll().contains(team2));
     }
+
+    @Test
+    public void getId_teamInstantiatesWithAnId() {
+        Team.clearAllTeams();
+        Team team = new Team("Hackers", "A group of students ready to code!");
+        assertEquals(1, team.getId());
+    }
 }

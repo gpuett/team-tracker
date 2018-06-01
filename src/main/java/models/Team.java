@@ -45,6 +45,11 @@ public class Team {
         return teamList;
     }
 
+    public int getId() {
+        return id;
+    }
 
-
+    public static void clearAllTeams(){
+        teamList.clear();
+    }
 }
