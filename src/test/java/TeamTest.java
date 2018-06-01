@@ -45,4 +45,11 @@ public class TeamTest {
         Team team = new Team("Hackers", "A group of students ready to code!");
         assertEquals(1, team.getId());
     }
+
+    @Test
+    public void findById_returnsCorrectTeamId() {
+        Team.clearAllTeams();
+        Team team = new Team("Hackers", "A group of students ready to code!");
+        assertEquals(1, Team.findById(team.getId()).getId());
+    }
 }

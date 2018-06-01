@@ -52,4 +52,8 @@ public class Team {
     public static void clearAllTeams(){
         teamList.clear();
     }
+
+    public static Team findById(int id){
+        return teamList.get(id-1);
+    }
 }
