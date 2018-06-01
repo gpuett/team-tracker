@@ -58,8 +58,6 @@ public class App {
             int idOfTeamToFind = Integer.parseInt(req.params("id"));
             Team newMemberTeam = Team.findById(idOfTeamToFind);
             newMemberTeam.addMember(newMember);
-//            model.put("team", newMemberTeam);
-//            return new ModelAndView(model, "team-detail.hbs");
             res.redirect("/teams/" + newMemberTeam.getId());
             return null;
         }, new HandlebarsTemplateEngine());
@@ -75,9 +73,10 @@ public class App {
         post("teams/:id/update", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             String newName = req.queryParams("name");
+            String newDescription = req.queryParams("description");
             int idOfTeamToEdit = Integer.parseInt(req.params("id"));
             Team editTeam = Team.findById(idOfTeamToEdit);
-            editTeam.update(newName);
+            editTeam.update(newName, newDescription);
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 

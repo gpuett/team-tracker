@@ -24,8 +24,9 @@ public class Team {
         return members;
     }
 
-    public void update(String name){
+    public void update(String name, String description){
         this.name = name;
+        this.description = description;
     }
 
     public String getName() {
@@ -50,5 +51,9 @@ public class Team {
 
     public static Team findById(int id){
         return teamList.get(id-1);
+    }
+
+    public void deleteTeam() {
+        teamList.remove(id-1);
     }
 }

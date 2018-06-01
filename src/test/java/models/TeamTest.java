@@ -50,8 +50,9 @@ public class TeamTest {
     @Test
     public void updateName_correctlyUpdatesName() {
         Team team = new Team("Hackers", "A group of students ready to code!");
-        team.update("Slackers");
+        team.update("Slackers", "Epicodus Students");
         assertEquals("Slackers", team.getName());
+        assertEquals("Epicodus Students", team.getDescription());
     }
 
     @Test
@@ -84,5 +85,14 @@ public class TeamTest {
         assertEquals(2, Team.findById(team2.getId()).getId());
     }
 
-
+    @Test
+    public void deleteTeam_deletesTheCorrectTeam() {
+        Team.clearAllTeams();
+        Team team = new Team("Hackers", "A group of students ready to code!");
+        Team team2 = new Team("Slackers", "Not the best hackers");
+        Team.getAll();
+        team.deleteTeam();
+        assertEquals(1, Team.getAll().size());
+        assertTrue(Team.getAll().contains(team2));
+    }
 }
