@@ -1,11 +1,12 @@
 {{#partial "content"}}
-    <p>Name:</p>
-    <p>{{team.name}}</p>
-    <p>Description</p>
-    <p>{{team.description}}</p>
-    <p>Members:</p>
-
-    <p>{{team.members}}</p>
+    <p><strong>Name:</strong> {{team.name}}</p>
+    <p><strong>Description:</strong> {{team.description}}</p>
+    <p><strong>Members:</strong></p>
+        <ul>
+            {{#each team.members}}
+                <li>{{this}}</li>
+            {{/each}}
+        </ul>
 
 {{/partial}}
 
