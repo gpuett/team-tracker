@@ -23,4 +23,11 @@ public class TeamTest {
         Team team = new Team("Hackers", "A group of students ready to code!");
         assertEquals("A group of students ready to code!", team.getDescription());
     }
+
+    @Test
+    public void updateName_correctlyUpdatesName() {
+        Team team = new Team("Hackers", "A group of students ready to code!");
+        team.update("Slackers");
+        assertEquals("Slackers", team.getName());
+    }
 }
