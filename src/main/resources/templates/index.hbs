@@ -4,10 +4,10 @@
 
     {{#if teams}}
         {{#each teams}}
-            <p>Team name: {{name}} <a href="/teams/{{id}}">Team Details</a></p>
+            <p><strong>Team name:</strong> {{name}} <br><a href="/teams/{{id}}">Team Details</a></p>
         {{/each}}
     {{else}}
-        <p>No Teams!</p>
+        <p><strong>No Teams!</strong></p>
     {{/if}}
 {{/partial}}
 
