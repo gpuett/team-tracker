@@ -16,9 +16,6 @@ public class Team {
         this.id = teamList.size();
     }
 
-    public void setMembers(ArrayList<String> members) {
-        this.members = members;
-    }
 
     public void addMember(String member){
         members.add(member);

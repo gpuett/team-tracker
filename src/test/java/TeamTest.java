@@ -25,6 +25,23 @@ public class TeamTest {
     }
 
     @Test
+    public void getMembers_correctlyGetsMembers() {
+        Team.clearAllTeams();
+        Team team = new Team("Hackers", "A group of students ready to code!");
+        team.addMember("John");
+        assertEquals(1, team.getMembers().size());
+    }
+
+    @Test
+    public void getMembers_correctlyGetsMembersWhenThereAreMultipleMembers() {
+        Team.clearAllTeams();
+        Team team = new Team("Hackers", "A group of students ready to code!");
+        team.addMember("John");
+        team.addMember("Sarah");
+        assertEquals(2, team.getMembers().size());
+    }
+
+    @Test
     public void updateName_correctlyUpdatesName() {
         Team team = new Team("Hackers", "A group of students ready to code!");
         team.update("Slackers");
@@ -61,20 +78,5 @@ public class TeamTest {
         assertEquals(2, Team.findById(team2.getId()).getId());
     }
 
-    @Test
-    public void getMembers_correctlyGetsMembers() {
-        Team.clearAllTeams();
-        Team team = new Team("Hackers", "A group of students ready to code!");
-        team.addMember("John");
-        assertEquals(1, team.getMembers().size());
-    }
 
-    @Test
-    public void getMembers_correctlyGetsMembersWhenThereAreMultipleMembers() {
-        Team.clearAllTeams();
-        Team team = new Team("Hackers", "A group of students ready to code!");
-        team.addMember("John");
-        team.addMember("Sarah");
-        assertEquals(2, team.getMembers().size());
-    }
 }
