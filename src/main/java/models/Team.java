@@ -16,7 +16,6 @@ public class Team {
         this.id = teamList.size();
     }
 
-
     public void addMember(String member){
         members.add(member);
     }
