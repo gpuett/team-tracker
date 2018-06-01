@@ -71,7 +71,7 @@ public class App {
 
         post("teams/:id/update", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
-            String newName = req.params("name");
+            String newName = req.queryParams("name");
             int idOfTeamToEdit = Integer.parseInt(req.params("id"));
             Team editTeam = Team.findById(idOfTeamToEdit);
             editTeam.update(newName);
