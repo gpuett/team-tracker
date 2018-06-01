@@ -69,5 +69,12 @@ public class TeamTest {
         assertEquals(1, team.getMembers().size());
     }
 
-
+    @Test
+    public void getMembers_correctlyGetsMembersWhenThereAreMultipleMembers() {
+        Team.clearAllTeams();
+        Team team = new Team("Hackers", "A group of students ready to code!");
+        team.addMember("John");
+        team.addMember("Sarah");
+        assertEquals(2, team.getMembers().size());
+    }
 }
