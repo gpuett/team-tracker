@@ -60,4 +60,14 @@ public class TeamTest {
         Team team2 = new Team("Slackers", "Not the best hackers");
         assertEquals(2, Team.findById(team2.getId()).getId());
     }
+
+    @Test
+    public void getMembers_correctlyGetsMembers() {
+        Team.clearAllTeams();
+        Team team = new Team("Hackers", "A group of students ready to code!");
+        team.addMember("John");
+        assertEquals(1, team.getMembers().size());
+    }
+
+
 }
