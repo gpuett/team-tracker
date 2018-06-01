@@ -1,3 +1,4 @@
+import models.Member;
 import models.Team;
 import org.junit.Test;
 
@@ -28,7 +29,8 @@ public class TeamTest {
     public void getMembers_correctlyGetsMembers() {
         Team.clearAllTeams();
         Team team = new Team("Hackers", "A group of students ready to code!");
-        team.addMember("John");
+        Member member = new Member("John");
+        team.addMember(member);
         assertEquals(1, team.getMembers().size());
     }
 
@@ -36,8 +38,10 @@ public class TeamTest {
     public void getMembers_correctlyGetsMembersWhenThereAreMultipleMembers() {
         Team.clearAllTeams();
         Team team = new Team("Hackers", "A group of students ready to code!");
-        team.addMember("John");
-        team.addMember("Sarah");
+        Member member1 = new Member("John");
+        Member member2 = new Member("Sarah");
+        team.addMember(member1);
+        team.addMember(member2);
         assertEquals(2, team.getMembers().size());
     }
 

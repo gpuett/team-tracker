@@ -1,3 +1,4 @@
+import models.Member;
 import models.Team;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
@@ -29,11 +30,14 @@ public class App {
             String name = request.queryParams("name");
             String description = request.queryParams("description");
             Team newTeam = new Team(name, description);
-            String member1 = request.queryParams("member1");
+            String name1 = request.queryParams("member1");
+            Member member1 = new Member(name1);
             newTeam.addMember(member1);
-            String member2 = request.queryParams("member2");
+            String name2 = request.queryParams("member2");
+            Member member2 = new Member(name2);
             newTeam.addMember(member2);
-            String member3 = request.queryParams("member3");
+            String name3 = request.queryParams("member3");
+            Member member3 = new Member(name3);
             newTeam.addMember(member3);
             model.put("teams", newTeam);
             return new ModelAndView(model, "success.hbs");
@@ -46,5 +50,34 @@ public class App {
             model.put("team", foundTeam);
             return new ModelAndView(model, "team-detail.hbs");
         }, new HandlebarsTemplateEngine());
+
+        post("/teams/:id", (req, res) -> {
+            String member = req.params("newMember");
+            Member newMember = new Member(member);
+            int idOfTeamToFind = Integer.parseInt(req.params("id"));
+            Team foundTeam = Team.findById(idOfTeamToFind);
+            foundTeam.addMember(newMember);
+            res.redirect("/teams/" + foundTeam.getId());
+            return null;
+        }, new HandlebarsTemplateEngine());
+
+        get("teams/:id/update", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfTeamToEdit = Integer.parseInt(req.params("id"));
+            Team editTeam = Team.findById(idOfTeamToEdit);
+            model.put("editTeam", editTeam);
+            return new ModelAndView(model, "team-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        post("teams/:id/update", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            String newName = req.params("name");
+            int idOfTeamToEdit = Integer.parseInt(req.params("id"));
+            Team editTeam = Team.findById(idOfTeamToEdit);
+            editTeam.update(newName);
+            return new ModelAndView(model, "success.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
     }
 }

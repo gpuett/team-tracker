@@ -3,7 +3,7 @@ package models;
 import java.util.ArrayList;
 
 public class Team {
-    private ArrayList<String> members = new ArrayList<>();
+    private ArrayList<Member> members = new ArrayList<>();
     private String name;
     private String description;
     private int id;
@@ -16,11 +16,11 @@ public class Team {
         this.id = teamList.size();
     }
 
-    public void addMember(String member){
+    public void addMember(Member member){
         members.add(member);
     }
 
-    public ArrayList<String> getMembers() {
+    public ArrayList<Member> getMembers() {
         return members;
     }
 
