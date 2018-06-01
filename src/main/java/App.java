@@ -78,6 +78,11 @@ public class App {
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
+        get("/about", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "about.hbs");
+        }, new HandlebarsTemplateEngine());
+
 
     }
 }
