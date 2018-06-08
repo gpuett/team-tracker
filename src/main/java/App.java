@@ -119,13 +119,13 @@ public class App {
             return new ModelAndView(model, "member-edit.hbs");
         }, new HandlebarsTemplateEngine());
 
-//        get("/teams/:team_id/members/:member_id/delete", (request, response) -> {
-//            int idOfMemberToDelete = Integer.parseInt(request.params("member_id"));
-//            memberDao.deleteById(idOfMemberToDelete);
-//            int idOfTeamToFind = Integer.parseInt(request.params("team_id"));
-//            response.redirect("/");
-//            return null;
-//        }, new HandlebarsTemplateEngine());
+        get("/teams/:team_id/members/:member_id/delete", (request, response) -> {
+            int idOfMemberToDelete = Integer.parseInt(request.params("member_id"));
+            memberDao.deleteById(idOfMemberToDelete);
+            int idOfTeamToFind = Integer.parseInt(request.params("team_id"));
+            response.redirect("/teams/" + idOfTeamToFind);
+            return null;
+        }, new HandlebarsTemplateEngine());
 
         post("/members/:id", (request, response) -> {
             String newName = request.queryParams("name");
