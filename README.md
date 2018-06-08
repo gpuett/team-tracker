@@ -16,6 +16,8 @@ A web app that allows users to set up teams for a weekend hack-a-thon.
 |**The program will let the user change the name of created teams**| "Hackers -> Slackers" | "Slackers" |
 |**The program will let the user change the description of created teams**| "Student -> Epicodus Students" | "Epicodus Students" |
 |**The program will allow the user to delete a team**| "delete" | "delete" |
+|**The program will allow the user to edit a member name**| "John" | "Johnny" |
+|**The program will allow the user to delete a member**| "delete" | "delete" |
 
 
 ### Setup/Installation
