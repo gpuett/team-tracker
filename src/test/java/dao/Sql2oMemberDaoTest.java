@@ -63,7 +63,11 @@ public class Sql2oMemberDaoTest {
     }
 
     @Test
-    public void deleteById() {
+    public void deleteById_deletesCorrectMember() {
+        Member member = new Member("John", 1);
+        memberDao.add(member);
+        memberDao.deleteById(member.getId());
+        assertEquals(0, memberDao.getAll().size());
     }
 
     @Test
