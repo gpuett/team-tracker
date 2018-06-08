@@ -71,6 +71,12 @@ public class Sql2oMemberDaoTest {
     }
 
     @Test
-    public void clearAllMembers() {
+    public void clearAllMembers_clearsAllMembers() {
+        Member member1 = new Member("John", 1);
+        memberDao.add(member1);
+        Member member2 = new Member("Sarah", 1);
+        memberDao.add(member2);
+        memberDao.clearAllMembers();
+        assertEquals(0, memberDao.getAll().size());
     }
 }
