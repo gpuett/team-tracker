@@ -44,6 +44,11 @@ public class Sql2oTeamDaoTest {
     }
 
     @Test
+    public void getAllReturnsNoTeamsIfNoneAdded() throws Exception{
+        assertEquals(0, teamDao.getAll().size());
+    }
+
+    @Test
     public void findById_correctlyFindsTeam() {
         Team team = new Team("Hackers", "A group of Epicodus students");
         teamDao.add(team);
@@ -52,7 +57,8 @@ public class Sql2oTeamDaoTest {
     }
 
     @Test
-    public void update() {
+    public void updateUpdatesCorrectly() {
+
     }
 
     @Test
