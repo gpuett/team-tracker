@@ -66,7 +66,11 @@ public class Sql2oTeamDaoTest {
     }
 
     @Test
-    public void deleteById() {
+    public void deleteById_deletesCorrectTeam() {
+        Team team = new Team("Hackers", "A group of Epicodus students");
+        teamDao.add(team);
+        teamDao.deleteById(team.getId());
+        assertEquals(0, teamDao.getAll().size());
     }
 
     @Test
