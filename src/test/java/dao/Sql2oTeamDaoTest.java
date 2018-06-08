@@ -85,5 +85,17 @@ public class Sql2oTeamDaoTest {
 
     @Test
     public void getAllMembersByTeam() {
+        Team team = new Team("Hackers", "A group of Epicodus students");
+        teamDao.add(team);
+        int teamId = team.getId();
+        Member john = new Member("John", teamId);
+        Member sarah = new Member("Sarah", teamId);
+        Member chad = new Member("Chad", teamId);
+        memberDao.add(john);
+        memberDao.add(sarah);
+        assertEquals(2, teamDao.getAllMembersByTeam(teamId).size());
+        assertTrue(teamDao.getAllMembersByTeam(teamId).contains(john));
+        assertTrue(teamDao.getAllMembersByTeam(teamId).contains(sarah));
+        assertFalse(teamDao.getAllMembersByTeam(teamId).contains(chad));
     }
 }
