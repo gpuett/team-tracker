@@ -1,19 +1,17 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Team {
     private ArrayList<Member> members = new ArrayList<>();
     private String name;
     private String description;
     private int id;
-    private static ArrayList<Team> teamList = new ArrayList<>();
 
     public Team(String name, String description){
         this.name = name;
         this.description = description;
-        teamList.add(this);
-        this.id = teamList.size();
     }
 
     public void addMember(Member member){
@@ -37,23 +35,25 @@ public class Team {
         return description;
     }
 
-    public static ArrayList<Team> getAll() {
-        return teamList;
-    }
 
     public int getId() {
         return id;
     }
 
-    public static void clearAllTeams(){
-        teamList.clear();
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Team team = (Team) o;
+        return id == team.id &&
+                Objects.equals(members, team.members) &&
+                Objects.equals(name, team.name) &&
+                Objects.equals(description, team.description);
     }
 
-    public static Team findById(int id){
-        return teamList.get(id-1);
-    }
+    @Override
+    public int hashCode() {
 
-    public void deleteTeam() {
-        teamList.remove(id-1);
+        return Objects.hash(members, name, description, id);
     }
 }

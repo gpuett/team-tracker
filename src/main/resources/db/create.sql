@@ -1,0 +1,9 @@
+SET MODE PostgreSQL;
+
+CREATE TABLE IF NOT EXISTS teams (
+
+)
+
+CREATE TABLE IF NOT EXISTS members (
+
+)
