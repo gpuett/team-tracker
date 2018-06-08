@@ -40,7 +40,10 @@ public class Sql2oMemberDaoTest {
         assertEquals(2, memberDao.getAll().size());
     }
 
-
+    @Test
+    public void getAllReturnsNoMemberIfNoneAdded() {
+        assertEquals(0, memberDao.getAll().size());
+    }
 
     @Test
     public void findById() {
