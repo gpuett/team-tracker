@@ -74,7 +74,13 @@ public class Sql2oTeamDaoTest {
     }
 
     @Test
-    public void clearAllTeams() {
+    public void clearAllTeams_clearsAllTeams() {
+        Team team1 = new Team("Hackers", "A group of Epicodus students");
+        teamDao.add(team1);
+        Team team2 = new Team("Slackers", "Not a group of Epicodus students");
+        teamDao.add(team2);
+        teamDao.clearAllTeams();
+        assertEquals(0, teamDao.getAll().size());
     }
 
     @Test
