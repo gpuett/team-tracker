@@ -46,7 +46,11 @@ public class Sql2oMemberDaoTest {
     }
 
     @Test
-    public void findById() {
+    public void findById_correctlyFindsMember() {
+        Member member = new Member("John", 1);
+        memberDao.add(member);
+        Member foundMember = memberDao.findById(member.getId());
+        assertEquals(member, foundMember);
     }
 
     @Test
