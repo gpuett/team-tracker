@@ -31,9 +31,13 @@ public class Sql2oMemberDaoTest {
         assertNotEquals(originalMemberId, member.getId());
     }
 
-
     @Test
-    public void getAll() {
+    public void getAll_getsAllCorrectly() {
+        Member member1 = new Member("John", 1);
+        memberDao.add(member1);
+        Member member2 = new Member("Sarah", 1);
+        memberDao.add(member2);
+        assertEquals(2, memberDao.getAll().size());
     }
 
 
