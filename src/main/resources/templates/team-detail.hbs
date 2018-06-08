@@ -2,9 +2,10 @@
     <p><strong>Name:</strong> {{team.name}}</p>
     <p><strong>Description:</strong> {{team.description}}</p>
     <p><strong>Members:</strong></p>
+    <p>Click on Members' names to edit/delete</p>
         <ul>
             {{#each members}}
-                <p>{{name}}</p>
+                <p><a href="/teams/{{team.id}}/members/{{id}}">{{name}}</a></p>
             {{/each}}
         </ul>
 

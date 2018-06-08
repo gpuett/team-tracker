@@ -107,5 +107,16 @@ public class App {
             res.redirect("/");
             return null;
         }, new HandlebarsTemplateEngine());
+
+        get("/teams/:team_id/members/:member_id", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfMemberToFind = Integer.parseInt(request.params("member_id"));
+            Member foundMember = memberDao.findById(idOfMemberToFind);
+            int idOfTeamToFind = Integer.parseInt(request.params("team_id"));
+            Team foundTeam = teamDao.findById(idOfTeamToFind);
+            model.put("member", foundMember);
+            model.put("team", foundTeam);
+            return new ModelAndView(model, "member-edit.hbs");
+        }, new HandlebarsTemplateEngine());
     }
 }

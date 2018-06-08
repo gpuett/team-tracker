@@ -1,0 +1,15 @@
+{{#partial "content"}}
+    <h1>Edit this member</h1>
+    <form action="/members/{{member.id}}" method="post">
+        <br>
+        <label for="name">Edit member name</label>
+        <input id="name" name="name" type="text" value="{{member.name}}">
+        <br><br>
+        <button type="submit" class="btn btn-danger">Change Name</button>
+    </form>
+
+    <br><br>
+    <a href="/members/{{member.id}}/delete">Delete this member</a>
+{{/partial}}
+
+{{> layout.hbs}}
