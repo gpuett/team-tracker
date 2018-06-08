@@ -65,17 +65,16 @@ public class App {
             model.put("members", allMembersByTeam);
             return new ModelAndView(model, "team-detail.hbs");
         }, new HandlebarsTemplateEngine());
-//
-//        post("/teams/:id", (req, res) -> {
-//            Map<String, Object> model = new HashMap<>();
-//            String newName = req.queryParams("name");
-//            Member newMember = new Member(newName);
-//            int idOfTeamToFind = Integer.parseInt(req.params("id"));
-//            Team newMemberTeam = Team.findById(idOfTeamToFind);
-//            newMemberTeam.addMember(newMember);
-//            res.redirect("/teams/" + newMemberTeam.getId());
-//            return null;
-//        }, new HandlebarsTemplateEngine());
+
+        post("/teams/:id", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            String newName = req.queryParams("name");
+            int idOfTeamToFind = Integer.parseInt(req.params("id"));
+            Member newMember = new Member(newName, idOfTeamToFind);
+            memberDao.add(newMember);
+            res.redirect("/teams/" + idOfTeamToFind);
+            return null;
+        }, new HandlebarsTemplateEngine());
 //
 //        get("teams/:id/update", (req, res) -> {
 //            Map<String, Object> model = new HashMap<>();
