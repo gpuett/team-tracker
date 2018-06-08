@@ -44,11 +44,11 @@ public class Sql2oTeamDaoTest {
     }
 
     @Test
-    public void add() {
-    }
-
-    @Test
-    public void findById() {
+    public void findById_correctlyFindsTeam() {
+        Team team = new Team("Hackers", "A group of Epicodus students");
+        teamDao.add(team);
+        Team foundTeam = teamDao.findById(team.getId());
+        assertEquals(team, foundTeam);
     }
 
     @Test
