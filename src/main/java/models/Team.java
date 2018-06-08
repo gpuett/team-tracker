@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Team {
-    private ArrayList<Member> members = new ArrayList<>();
     private String name;
     private String description;
     private int id;
@@ -14,18 +13,6 @@ public class Team {
         this.description = description;
     }
 
-    public void addMember(Member member){
-        members.add(member);
-    }
-
-    public ArrayList<Member> getMembers() {
-        return members;
-    }
-
-    public void update(String name, String description){
-        this.name = name;
-        this.description = description;
-    }
 
     public String getName() {
         return name;
@@ -49,7 +36,6 @@ public class Team {
         if (o == null || getClass() != o.getClass()) return false;
         Team team = (Team) o;
         return id == team.id &&
-                Objects.equals(members, team.members) &&
                 Objects.equals(name, team.name) &&
                 Objects.equals(description, team.description);
     }
@@ -57,6 +43,6 @@ public class Team {
     @Override
     public int hashCode() {
 
-        return Objects.hash(members, name, description, id);
+        return Objects.hash(name, description, id);
     }
 }
