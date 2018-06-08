@@ -35,7 +35,12 @@ public class Sql2oTeamDaoTest {
     }
 
     @Test
-    public void getAll() {
+    public void getAll_getsAllCorrectly() {
+        Team team1 = new Team("Hackers", "A group of Epicodus students");
+        teamDao.add(team1);
+        Team team2 = new Team("Slackers", "Not a group of Epicodus students");
+        teamDao.add(team2);
+        assertEquals(2, teamDao.getAll().size());
     }
 
     @Test
