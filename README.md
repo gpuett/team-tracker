@@ -25,12 +25,14 @@ A web app that allows users to set up teams for a weekend hack-a-thon.
 * Open your browser and travel to <a href="http://localhost:4567">localhost:4567</a>
 
 ### Known Bugs
-* Deleting a team that was not the most recently created will break dynamic routes to detail pages.
+* Routes that return null will create error messages in the run terminal, no actual run issue will occur.
 
 ## Technologies Used
 * Java
 * Spark
 * Handlebars/Moustache
+* H2
+* SQL
 
 ## License
 This software is licensed under the MIT license.

@@ -6,6 +6,8 @@
             <input id="name" name="name" type="text" value="{{editTeam.name}}"><br><br>
             <label for="description">Edit this team's description</label><br>
             <input id="description" name="description" type="text" value="{{editTeam.description}}"><br><br>
+            <button type="submit" class="btn btn-danger">Edit!</button>
+        </form>
 
 
     {{else}}
@@ -22,10 +24,10 @@
                 <input id="member2" name="member2" type="text"><br><br>
                 <label for="member3">Team member 3</label><br>
                 <input id="member3" name="member3" type="text"><br><br>
+                <button type="submit" class="btn btn-danger">Go!</button>
+            </form>
 
     {{/if}}
-        <button type="submit" class="btn btn-danger">Go!</button>
-    </form>
 
 {{/partial}}
 
