@@ -5,9 +5,11 @@ import java.util.Objects;
 public class Member {
     private String name;
     private int id;
+    private int teamId;
 
-    public Member(String name){
+    public Member(String name, int teamId){
         this.name = name;
+        this.teamId = teamId;
     }
 
     public String getName(){
@@ -16,6 +18,10 @@ public class Member {
 
     public int getId() {
         return id;
+    }
+
+    public int getTeamId() {
+        return teamId;
     }
 
     @Override
